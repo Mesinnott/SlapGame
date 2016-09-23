@@ -35,3 +35,13 @@ h1{
   left: 48%;
   height: 130px;
 }
+.panel-healthy{
+    background-color: limegreen;
+}
+.panel-danger{
+    background-color: red;
+}
+.panel-dead{
+    background-color: black;
+    color: ghostwhite
+}
