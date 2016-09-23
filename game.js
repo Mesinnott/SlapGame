@@ -21,5 +21,8 @@ function reset(){
 
 function update(){
   var healthElem = document.getElementById('health')
+  if(health<=0){
+      health = 0
+  }
   healthElem.innerHTML = health
 }
