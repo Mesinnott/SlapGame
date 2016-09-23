@@ -15,7 +15,8 @@ function onPunch(){
   return health
 }
 function reset(){
-    health =100
+    health = 100
+    update()
 }
 
 function update(){
