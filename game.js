@@ -14,7 +14,9 @@ function onPunch(){
   update()
   return health
 }
-
+function reset(){
+    health =100
+}
 
 function update(){
   var healthElem = document.getElementById('health')
