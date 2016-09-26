@@ -34,7 +34,7 @@ body{
     color:red;
     font-size: 30px;
     text-align:center;
-    animation: flash 5s;;
+    animation: flash 5s;
 }
 @keyframes flash{
     0% {
