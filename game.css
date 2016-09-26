@@ -34,8 +34,7 @@ body{
     color:red;
     font-size: 30px;
     text-align:center;
-    animation: flash 5s;
-    animation-fill-mode: both;
+    animation: flash 5s;;
 }
 @keyframes flash{
     0% {
@@ -118,4 +117,17 @@ left: 60%;
 }
 .panel-victory button{
     background-color:gold;
+}
+.on{
+opacity:1;
+display:flex;
+}
+.off{
+opacity: 0.5;
+display:flex;
+}
+.item-panel{
+    display:flex;
+    align-content:flex-end;
+    flex-wrap:wrap;
 }

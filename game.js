@@ -22,10 +22,10 @@ var Item = function(name, attack, speed, defence, quantity, description){
 }
 
 var extraItems = [
-    shield=new Item('Shield', 0, -8, 70, 1, "Thick, powerful shield"),
-    grapes= new Item('Grapes', 0.3, 0, 0, 1, 'A bunch of purple grapes you found'),
-    shoes= new Item('Shoes', 0.1, 10, 5, 1,  'A fresh pair of kicks to protect your feet'),
-    gloves= new Item('Gloves', 0.1, 2, 0, 1,  "A pair of black leather gloves you found back in '94")
+    shield=new Item('Shield', 0, -8, 70, 0, "Thick, powerful shield"),
+    grapes= new Item('Grapes', 0.3, 0, 0, 0, 'A bunch of purple grapes you found'),
+    shoes= new Item('Shoes', 0.1, 10, 5, 0,  'A fresh pair of kicks to protect your feet'),
+    gloves= new Item('Gloves', 0.1, 2, 0, 0,  "A pair of black leather gloves you found back in '94")
 ]
 var target = new Player('target', 100, 100, 100, 100, 100)
 var p1 = new Player('p1', 10, 1, 0, 0, 100)
@@ -58,8 +58,42 @@ Player.prototype.speedMod = function(){
 var onAction= document.getElementById('action')
 var bothHealth =[target.health, p1.health]
 
-function startAnimation() {
-    onAction.style.animation = "flash 2s linear 1";
+var addShield = function(){
+    if(extraItems[0].quantity==0){
+        extraItems[0].quantity ++
+        document.getElementById('shield').className='on'
+    } else{
+        extraItems[0].quantity = 0
+        document.getElementById('shield').className='off'
+    }update()
+}
+var addGrapes = function(){
+    if(extraItems[1].quantity== 0){
+        extraItems[1].quantity ++
+        document.getElementById('grapes').className='on'
+    } else{
+        extraItems[1].quantity = 0
+        document.getElementById('grapes').className='off'
+    }update()
+}
+var addShoes = function(){
+    if(extraItems[2].quantity==0){
+        extraItems[2].quantity ++
+        document.getElementById('shoes').className='on'
+    } else{
+        extraItems[2].quantity = 0
+        document.getElementById('shoes').className='off'
+    }update()
+    console.log('shoes' + extraItems[2].quantity)
+}
+var addGloves = function(){
+    if(extraItems[3].quantity==0){
+        extraItems[3].quantity ++
+        document.getElementById('gloves').className='on'
+    } else{
+        extraItems[3].quantity = 0
+        document.getElementById('gloves').className='off'
+    }update()
 }
 
 Player.prototype.onSmall = function (){
@@ -130,10 +164,15 @@ function update(){
   var healthElem = document.getElementById('targetHealth') 
   var yourHealth = document.getElementById('p1Health')
   var newMessage = document.getElementById('message')
+
+attackMod = 1
+defenceMod = 0
+speedMod =10
+
   if(p1.health<=0){
       p1.health = 0
       message.innerHTML='YOU DIED!'
-      document.getElementById('player-panel').className='player panel-dead'
+      return document.getElementById('player-panel').className='player panel-dead'
   }else if(p1.health<=40 && p1.health>0){
       message.innerHTML='Careful, Health is LOW!'
       document.getElementById('player-panel').className='player panel-danger'
@@ -143,23 +182,18 @@ function update(){
 if(target.health<=0){
     target.health=0
     message='YOU DEFEATED THE WOLVERINE! CONGRATS ON KILLING A RARE AND MAGNIFICENT CREATURE'
-    document.getElementById('player-panel').className='player panel-victory'
+    return document.getElementById('player-panel').className='player panel-victory'
 }
    if (distance >=100){
     return newMessage.innerHTML='Nice running, you Escaped!'
     
 }
-attackMod = 1
-defenceMod = 0
-speedMod =10
-console.log('distance: ' + distance)
-console.log('fatigue: ' + fatigue)
 
 if (fatigue >= 100){
     distance -= 60
     fatigue -=20
     p1.health -= 10
-    NewMessage.innerHTML = 'You worked Too Hard and Got Tired';
+    newMessage.innerHTML = 'You worked Too Hard and Got Tired';
     return yourHealth.innerHTML=' Your Health: ' + p1.health;
 }
 if(distance>50){
