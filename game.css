@@ -131,3 +131,8 @@ display:flex;
     align-content:flex-end;
     flex-wrap:wrap;
 }
+.results-panel{
+    display:flex;
+    justify-content: center;
+    color:black
+}

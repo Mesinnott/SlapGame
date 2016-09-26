@@ -97,7 +97,7 @@ var addGloves = function(){
 }
 
 Player.prototype.onSmall = function (){
-    // debugger;
+    debugger;
     target.health -= this.small*(this.attackMod())
     onAction.className='actionGo'
     action.innerHTML='Great Punch?!'
@@ -147,6 +147,10 @@ Player.prototype.onSpecial = function(){
     return [bothHealth]
 }
 
+function tryAgain(){
+    window.location ='index.html';
+    update();
+}
 
 function reset(){
     target.health = 100
@@ -164,14 +168,13 @@ function update(){
   var healthElem = document.getElementById('targetHealth') 
   var yourHealth = document.getElementById('p1Health')
   var newMessage = document.getElementById('message')
-
 attackMod = 1
 defenceMod = 0
 speedMod =10
 
   if(p1.health<=0){
       p1.health = 0
-      message.innerHTML='YOU DIED!'
+       window.location='page2.html'
       return document.getElementById('player-panel').className='player panel-dead'
   }else if(p1.health<=40 && p1.health>0){
       message.innerHTML='Careful, Health is LOW!'
@@ -181,12 +184,11 @@ speedMod =10
 }
 if(target.health<=0){
     target.health=0
-    message='YOU DEFEATED THE WOLVERINE! CONGRATS ON KILLING A RARE AND MAGNIFICENT CREATURE'
+    window.location='murderer.html'
     return document.getElementById('player-panel').className='player panel-victory'
 }
    if (distance >=100){
-    return newMessage.innerHTML='Nice running, you Escaped!'
-    
+    window.location='ranAway.html'
 }
 
 if (fatigue >= 100){
