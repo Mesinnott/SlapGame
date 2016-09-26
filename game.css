@@ -1,24 +1,72 @@
 body{
-  background: url(http://www.colxi.info/wp-content/uploads/2012/11/Lb2villageoftwilightbg.gif) center center;
+  background: url(http://twistedsifter.files.wordpress.com/2013/05/animated-gifs-of-fighting-game-backgrounds-25.gif?w=2400&h=1008  ) center center;
   background-size: cover;
 }
 
 .stage{
   display:flex;
-  align-items: center;
   justify-content: space-around;
 }
 .player{
   display: flex;
+  justify-content: flex-end;
+  font-family: cursive;
+  font-size: 15px;
 }
 
-img.invert {
-    -moz-transform: scaleX(-1);
-    -o-transform: scaleX(-1);
-    -webkit-transform: scaleX(-1);
-    transform: scaleX(-1);
-    filter: FlipH;
-    -ms-filter: "FlipH";
+
+
+.message{
+    justify-content: flex-start;
+    width:200px;
+    font-family: cursive;
+    background-color: yellow;
+    opacity: .7;
+    font-size: 30px;
+    text-align: center;
+    color: black;
+    animation: pulse 4s infinite;
+}
+.actionGo{
+    justify-content:flex-start;
+    width: 200px;
+    font-family:cursive;
+    color:red;
+    font-size: 30px;
+    text-align:center;
+    animation: flash 5s;
+    animation-fill-mode: both;
+}
+@keyframes flash{
+    0% {
+        opacity: 0
+    }
+    50%{
+        opacity:1
+    }
+    100% {
+        opacity: 0
+    }
+}
+@keyframes pulse{
+    0% {background-color: yellow;
+    opacity: .9
+    }
+    50% { background-color: yellow;
+    opacity: .3
+    }
+    100% {background-color: yellow;
+    opacity: .9}
+
+}
+
+.img-flip{
+        -moz-transform: scaleX(-1);
+        -o-transform: scaleX(-1);
+        -webkit-transform: scaleX(-1);
+        transform: scaleX(-1);
+        filter: FlipH;
+        -ms-filter: "FlipH";
 }
 
 h1{
@@ -27,21 +75,47 @@ h1{
   padding: 35px;
   text-align: center;
 }
-
+.fighter{
+position:absolute;
+bottom: 30px;
+left: 60%;
+}
+.text-black{
+    color:black
+}
 .dummy{
-  background: url(http://network.mugenguild.com/guild/stances/ss1_bonus.gif) no-repeat;
   position: absolute;
-  bottom: 20px;
-  left: 48%;
-  height: 130px;
+  bottom: 30px;
+  left: 25%;  
+}
+.far-dummy{
+    height: 25%px;
+    width: 25%;
+
 }
 .panel-healthy{
+    background-color: limegreen;
+}
+.panel-healthy button{
     background-color: limegreen;
 }
 .panel-danger{
     background-color: red;
 }
+.panel-danger button{
+    background-color: red;
+}
 .panel-dead{
     background-color: black;
     color: ghostwhite
+}
+.panel-dead button{
+    background-color: black;
+    color: ghostwhite
+}
+.panel-victory{
+    background-color:gold;
+}
+.panel-victory button{
+    background-color:gold;
 }

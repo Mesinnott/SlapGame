@@ -6,20 +6,30 @@
 </head>
 <body>
 	<div class="stage">
-		<div class="player" id='player-panel'>
-	<button><img src = "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcSfy7uJBhUPZPu6d4lU8SvWdegEMS1ZpukwnYiFtpRcMX3XIEcLKg" height='80'/><p>Player 1</p> </button>
-    <button onclick="onSlap()">Slap</button>
-    <button onclick= "onPunch()">Punch</button>
-    <button onclick= 'onKick()'>Kick</button>
-    <button onclick= 'onHadouken()'><img src="http://i598.photobucket.com/albums/tt68/xXONEXx/Decorated%20images/hadouken.png" height="80" /></button>
-	<button onclick = "reset()">Reset</button>	
+	<div class = "message" id= 'message'>
+		<p>Updates:  </p>
+	</div>
+	<div class = 'actionGo' id='action'>
+		<p>FIGHT!!!!!</p>
+		</div>
+		<div class="player panel-healthy" id = 'player-panel'>
+    <button class ='player' onclick="p1.onSmall()">Hands</button>
+    <button class ='player' onclick= "p1.onMedium()">Hands Special</button>
+    <button class ='player' onclick= 'p1.onLarge()'>Feet</button>
+    <button class ='player' onclick= 'p1.onSpecial()'>Feet Special</button>
+	<button class ='player' onclick= "reset()">Reset</button>	
   </div>
 </div>
 
+<div class=container-fluid>	
 <div class="dummy">
-  <h1 id="health">100</h1>
+	<h1 class='text-black' id="targetHealth">Enemy Health: 100</h1>
+	<img class= '' id ='dummy' src = "http://mafiawarscollectors.yolasite.com/resources/huge_item_wolverine_01-li.png" alt ='the enemy'>
 </div>
-
+<div class ="fighter">
+	<h1 class= 'text-black' id="p1Health">Your Health: 100</h1>
+	<img id='avatar' src="http://4.bp.blogspot.com/-wuYui1_YR3s/VMy4ycSNR1I/AAAAAAAADxU/c_JdVH8gfYI/s1600/3_2.png" alt='wolverine' height='300' width='300'>
+</div>
 	<script src="game.js"></script>
 </body>
 </html>
