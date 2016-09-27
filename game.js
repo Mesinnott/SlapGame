@@ -1,4 +1,8 @@
 
+/**I would be cool to see your distance on the screen as it changes.
+ * You want to add math.floor to make sure the display is not showing decimal numbers.
+ */
+
 var distance = 1
 var fatigue = 1
 
@@ -97,7 +101,7 @@ var addGloves = function(){
 }
 
 Player.prototype.onSmall = function (){
-    debugger;
+    // debugger;
     target.health -= this.small*(this.attackMod())
     onAction.className='actionGo'
     action.innerHTML='Great Punch?!'
@@ -174,6 +178,7 @@ speedMod =10
 
   if(p1.health<=0){
       p1.health = 0
+      /**Once you get your health to zero, it stays on the main page until you click an action after you're already dead. I think you want to change screens as it hits zero so that you don't have another action after you're dead.' */
        window.location='page2.html'
       return document.getElementById('player-panel').className='player panel-dead'
   }else if(p1.health<=40 && p1.health>0){
